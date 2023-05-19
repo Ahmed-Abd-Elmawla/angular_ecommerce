@@ -1,0 +1,38 @@
+<div class="container mt-5">
+<form #loginForm="ngForm" (ngSubmit)="submitLogin(loginForm)">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+    ngModel
+    name="email"
+    #email="ngModel"
+    required
+    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$"
+    >
+    <div id="emailHelp" class="form-text text-danger" *ngIf="email.touched && email.invalid">
+      <span *ngIf="email.errors?.['required']">This field is required</span>
+      <span *ngIf="email.errors?.['pattern']">Enter a vaild email</span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1"
+    ngModel
+    name="password"
+    #password="ngModel"
+    required
+    minlength="8"
+    pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*d).*$"
+    >
+    <div id="emailHelp" class="form-text text-danger" *ngIf="password.touched && password.invalid">
+      <span *ngIf="password.errors?.['required']">This field is required | </span>
+      <span *ngIf="password.errors?.['minlength']">Length less than 8 | </span>
+      <span *ngIf="password.errors?.['pattern']">Enter a vaild password</span>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">login</button>
+  <p class="mt-3">
+    do not have Account?
+    <a routerLink="/register">Register</a>
+  </p>
+</form></div>

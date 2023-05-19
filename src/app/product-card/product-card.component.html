@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let produc of product">
+      <div class="card mt-5 m-2" [ngClass]="{'border-danger':produc.stock==0,
+      'border-success':produc.stock>0
+    }">
+        <img [src]="produc.thumbnail" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{produc.title}}</h5>
+          <p>{{produc.price | currency :"E£"}}</p>
+          <!-- <p>Add At: {{produc.date | date :"MMMM YYYY"}}</p> -->
+          <!-- <p class="card-text">{{produc.description}}</p> -->
+          <div class="buttons">
+            <button class="btn me-2" [ngClass]="{'btn-outline-danger disabled':produc.stock==0,
+          'btn-outline-success':produc.stock>0
+        }" (click)="addOrder(produc.id,produc.thumbnail,produc.title,produc.price,produc.stock)"> Add to cart</button>
+            <button class="btn btn-outline-dark" (click)="toDetails(produc.id)">More Info</button>
+          </div>
+        </div>
+        <span class="stock" [ngClass]="{'out-stock':produc.stock==0,
+        'in-stock':produc.stock>0
+      }">{{produc.stock | count}}</span>
+      <span class="discount bg-warning " *ngIf="produc.id%2==0">{{produc.discountPercentage}}% OFF</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- [routerLink]="['/addtocart']" routerLinkActive="router-link-active" -->

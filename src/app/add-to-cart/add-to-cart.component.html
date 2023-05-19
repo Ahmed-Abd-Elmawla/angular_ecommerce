@@ -1,0 +1,36 @@
+<div class="container text-center">
+  <table class="table table-hover table-dark mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cancel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orderProducts">
+        <td>
+          <img [src]="item.thumbnail" alt="" srcset=""></td>
+        <td>{{item.title}}</td>
+        <td>{{item.manyItem}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="increase(item.id)">+</button>
+          <span class="me-3 ms-3">{{item.quantity}}</span>
+          <button type="button" class="btn btn-primary" (click)="decrease(item.id)">-</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="remove(item.id)">X</button>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Total Price</td>
+        <td>{{sum}}</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+<!-- <h1>{{selectedProduct.title}}</h1> -->
+<div class="card m-5 p-5 mt-5 pt-5">
+  <img [src]=selectedProduct.thumbnail class="card-img-top " alt="...">
+  <div class="card-body">
+    <h1 class="card-title">{{selectedProduct.title}}</h1>
+    <p class="card-text">{{selectedProduct.description}}</p>
+    <p>{{selectedProduct.price|currency :"E£"}}</p>
+    <div class="buttons text-center">
+      <button class="btn me-2" [ngClass]="{'btn-outline-danger disabled':selectedProduct.stock==0,
+'btn-outline-success':selectedProduct.stock>0
+}" (click)="addOrder(selectedProduct.id,selectedProduct.thumbnail,selectedProduct.title,selectedProduct.price,selectedProduct.stock)"> Add to cart</button>
+    </div>
+    <span [ngClass]="{'out-stock':selectedProduct.stock==0,
+'in-stock':selectedProduct.stock>0
+}">{{selectedProduct.stock | count}}</span>
+  </div>
+</div>

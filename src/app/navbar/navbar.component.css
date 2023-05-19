@@ -1,0 +1,26 @@
+.container-fluid{
+  background-color: rgb(23, 22, 22);
+  height: 80px;
+}
+.navbar-brand,li a{
+  color: azure;
+}
+.navbar{
+ padding: 0;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 999;
+}
+.navbar-nav .nav-link{
+padding-top: 25px;
+  height: 80px;
+}
+.navbar-nav .nav-link.active{
+  background-color: azure;
+  color: rgb(23, 22, 22);
+}
+.cart{
+  color: azure;
+
+}

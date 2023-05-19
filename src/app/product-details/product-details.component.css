@@ -1,0 +1,19 @@
+img{
+  width: 400px;
+  margin: auto;
+}
+span{
+  position: absolute;
+  top: -0.9px;
+  left: -0.9px;
+  padding: 3px 8px 3px 8px;
+  border-radius: 0.375rem 0px 0px  0px;
+}
+.in-stock{
+  background-color: #198754;
+  color: azure;
+}
+.out-stock{
+  background-color: #dc3545;
+  color: azure;
+}
